@@ -1,0 +1,26 @@
+FROM nvcr.io/nvidia/pytorch:22.12-py3
+
+
+
+
+# COPY . /vllm
+
+
+# # ENTRYPOINT [ "/bin/bash" ]
+WORKDIR /vllm
+RUN pip install vllm
+
+RUN pip install pydantic==1.10.12
+
+# RUN echo $(ls -la)
+# ls -la
+
+# RUN pip install -e . #/vllmpip install vllm
+
+RUN pip install fschat
+
+ENTRYPOINT ["python3", "-m", "vllm.entrypoints.openai.api_server", "--model", "WizardLM/WizardCoder-1B-V1.0"]
+
+# WORKDIR /
+
+# RUN apt-get install 

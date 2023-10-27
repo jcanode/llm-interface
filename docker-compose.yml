@@ -1,0 +1,41 @@
+version: '3'
+services:
+  mongodb:
+    image: mongo
+    # environment:
+    #   - CONN_STR=mongodb://localhost:27018
+    ports:
+      - 27017:27017
+    volumes:
+      - ./data:/data/db
+  chat-server:
+      build:
+        context: .
+        dockerfile: Dockerfile
+      # environment:
+      #   - MONGODB_URL=mongodb://chat-ui_mongodb_1:27017
+      ports:
+        - 5000:3000
+      networks:
+        - chat-ui_default
+      depends_on:
+        - mongodb
+  api-server:
+    image: vllm-wc-1b
+    #build:
+    #  context: /home/justin/Documents/#vllm
+    #  dockerfile: Dockerfile
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              device_ids: ["0"]
+              capabilities: [gpu]
+    ports:
+      - 8000:8000
+    depends_on:
+      - mongodb
+networks:
+  chat-ui_default:
+    external: true

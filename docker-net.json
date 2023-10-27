@@ -1,0 +1,56 @@
+[
+    {
+        "Name": "chat-ui_default",
+        "Id": "f8783b775f281fddbc53c70d6773dba7cdea91cb5b780c35427369f433f5f761",
+        "Created": "2023-10-20T14:21:06.504519833-04:00",
+        "Scope": "local",
+        "Driver": "bridge",
+        "EnableIPv6": false,
+        "IPAM": {
+            "Driver": "default",
+            "Options": null,
+            "Config": [
+                {
+                    "Subnet": "172.21.0.0/16",
+                    "Gateway": "172.21.0.1"
+                }
+            ]
+        },
+        "Internal": false,
+        "Attachable": true,
+        "Ingress": false,
+        "ConfigFrom": {
+            "Network": ""
+        },
+        "ConfigOnly": false,
+        "Containers": {
+            "27c03707a795a3e9bf29344da16f7a3bd60bff5f960c8c3caaa9343001aba95f": {
+                "Name": "chat-ui_mongodb_1",
+                "EndpointID": "4dcf8e69c74815fa90aa74685b83571e5faa65cc9f9f712e34ac49c493aa963a",
+                "MacAddress": "02:42:ac:15:00:02",
+                "IPv4Address": "172.21.0.2/16",
+                "IPv6Address": ""
+            },
+            "7bee618cbf74f4262d80fd8066499349de30d3d28175d6822cf722bac368c4bc": {
+                "Name": "chat-ui_chat-ui_1",
+                "EndpointID": "ec3044bfc26583f7b7ccf17d98fce681647105ed8d0b9b736a67d7460d84117d",
+                "MacAddress": "02:42:ac:15:00:04",
+                "IPv4Address": "172.21.0.4/16",
+                "IPv6Address": ""
+            },
+            "8ee1ea49af482ad8e7164bd9c845d4a0b62ca836dad7adcd20b9614295edf8c3": {
+                "Name": "chat-ui_api-server_1",
+                "EndpointID": "867b521a2dfac01875887a420853732471e65fa9bc9cdb542040d6670c6aeb74",
+                "MacAddress": "02:42:ac:15:00:03",
+                "IPv4Address": "172.21.0.3/16",
+                "IPv6Address": ""
+            }
+        },
+        "Options": {},
+        "Labels": {
+            "com.docker.compose.network": "default",
+            "com.docker.compose.project": "chat-ui",
+            "com.docker.compose.version": "1.29.2"
+        }
+    }
+]
